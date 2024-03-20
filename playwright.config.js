@@ -16,6 +16,7 @@ module.exports = defineConfig({
   timeout:20 * 1000, 
    
   expect:{
+    // this is timeout for assertions. Expect
     // default timeout for expect is 5 sec
     timeout:4000
   },

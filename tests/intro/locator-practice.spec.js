@@ -1,4 +1,4 @@
-const {test}=require("@playwright/test"); 
+const {test,expect}=require("@playwright/test"); 
 
 
 test("Locator Practice", async ({page}) => {
@@ -12,8 +12,22 @@ test("Locator Practice", async ({page}) => {
 
     await page.locator("#radio-button-3").check(); 
 
-    await page.locator("//a[.='Submit']").click(); 
+    await page.locator("#checkbox-1").click(); 
 
+    await page.locator("#checkbox-1").uncheck(); 
+
+    await page.locator("//a[.='Submit']").click();
+    
+    // let actual=await page.locator("//div/div").textContent(); //getText
+
+    // console.log(actual);
+
+    //await page.waitForURL("https://formy-project.herokuapp.com/thanks"); 
+    //await page.waitForTimeout(1000); 
+
+    await expect(page.locator("//div[@class='alert alert-success']")).toHaveText("The form was successfully submitted!"); 
+    await expect(page).toHaveURL("https://formy-project.herokuapp.com/thanks")
+    await expect(page).toHaveTitle("Formy"); 
     //await page.pause(); 
 
 })
