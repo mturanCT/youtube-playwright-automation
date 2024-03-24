@@ -13,7 +13,7 @@ test("JS Alert-1",async ({page})=>{
 
     await page.getByText('Click for JS Prompt').click(); // by default alert is dismissed. 
 
-    await expect(page.locator('#result')).toHaveText("You entered: techtoria")
+    await expect(page.locator('#result')).toHaveText("You entered: techtorial")
 
     //await page.pause(); 
 
