@@ -214,3 +214,69 @@ page.locator('//button').dblClick();
 
 ### ------------ KeyBoard Buttons ----------------
 
+domcontentloaded = waits until the page is loaded. However it doesnt wait for the images, subframes, style
+load = waits until the page is loaded. It waits for the images, subframes, styles to load as well.
+networkIdle= it waits until api calls loaded on the page as well. 
+
+Backquote, Minus, Equal, Backslash, Backspace, Tab, Delete, Escape,
+ArrowDown, End, Enter, Home, Insert, PageDown, PageUp, ArrowRight,
+ArrowUp, F1 - F12, Digit0 - Digit9, KeyA - KeyZ, etc.
+
+Following modification shortcuts are also supported: Shift, Control, Alt.
+
+```html
+< select multiple id='selectoptions' >
+    <option value='red'> Red </option>
+    <option value='blue'> Blue </option>
+<select>
+```
+We can click the button in keyboard using the press methods which comes from the locator. 
+
+### How to select value from the Dropdown? 
+
+    we can use selectOption() method to select the values from the drop down. 
+
+    1- selectOption("optionName") --> it will check values or labels for the <option> then select the matching value
+    2- selectOption({label:'labelname'})
+       selectOption({value:'value'})
+       selectOption({index: 2})
+    3- selectOption(["red","blue"])
+
+
+    const selectElement=await page.locator("#selectoptions"); 
+
+    // element.locator("options"); 
+    let optionList=selectElement.locator("options");
+
+### How to handle the Alert using Playwright? 
+
+By default all the alerts in playwright is dismissed. If you want to perform other actions like accept(), dismiss(), message()
+
+Before clicking the buttons which will trigger the alert, we need to define our actions. 
+
+page.on('dialog', dialog => dialog.accept())
+page.on('dialog', dialog => dialog.accept("message into the box"))
+-->it will listen the following code which will trigger the alert. 
+page.on('dialog', dialog => dialog.dismiss())
+page.on('dialog', dialog => dialog.message())
+page.locator("//button").click(); --> opens the alert
+
+### How to switch windows using Playwright? 
+
+context() --> it will give us the context which has a pages. 
+
+waitForEvent('page) --> it will wait for new page to opened. 
+
+PROMISES
+
+pending
+rejected
+fullfilled
+
+
+let numbers=[1,2,3]; 
+
+let [num1, num2, num3]=numbers; 
+
+log(num1)
+log(num2)
