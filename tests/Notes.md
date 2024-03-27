@@ -280,3 +280,54 @@ let [num1, num2, num3]=numbers;
 
 log(num1)
 log(num2)
+
+### WINDOW HANDLE
+
+const pagePromises=page.context().waitForEvent('page'); 
+
+await page.locator("//xpath").click(); 
+
+const newPage=await pagePromises;
+
+await page.waitforLoadState("domcontentload"); 
+
+
+----------
+
+```javascript 
+const pagePromises= Promise.all([
+    page.context().waitForEvent('page'), pending, fullfilled
+    page.locator("//xpath").click(), pending, fullfilled
+])
+const newPage=pagePromises; 
+```
+
+There are 3 status for the promises: pending, fullfilled, rejected
+
+### IFRAME
+
+```javascript 
+async({page})=>{
+
+    const iframe=page.frameLocator("//xpath"); 
+    iframe.locator("//xapth").fill(); 
+
+    //inner frame
+    const innerFrame=iframe.frameLocator("#css"); 
+    innerFrame.locator("//xapth").click();
+
+    page.locator(); 
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
