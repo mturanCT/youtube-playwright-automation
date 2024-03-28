@@ -3,7 +3,7 @@ const DragAndDrop=require("./drag-page")
 
 test.describe.configure({mode:"serial"})
 
-test("Drag & Drop Practice", async ({page})=>{
+test("Drag & Drop Practice",{tag:["@hlr", "@smoke", "@regression"]},  async ({page})=>{
 
     await page.goto("https://demos.telerik.com/kendo-ui/dragdrop/area");
     const blueBox=page.locator(".test1"); // target element
@@ -14,15 +14,13 @@ test("Drag & Drop Practice", async ({page})=>{
        return window.getComputedStyle(el).getPropertyValue('background-color');
     })
     expect(bColor).toEqual("rgb(63, 81, 181)")
-    await page.waitForTimeout(5000); 
 
 })
 
-test("Drag & Drop Practice With Page Object", async ({page})=>{
+test("Drag & Drop Practice With Page Object @hlr @smoke", async ({page})=>{
 
     const dragPage=new DragAndDrop(page); 
     await dragPage.navigateToTelerik(); 
     await dragPage.dragToBlueBox();
-    await page.waitForTimeout(2000); 
     
 })
