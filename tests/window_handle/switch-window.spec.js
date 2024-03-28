@@ -58,7 +58,6 @@ test("Switch Window With Method", async ({page})=>{
     console.log(await newPage.title());
     console.log(await newPage.url());
 
-    BREAK: 8:03PM
 })
 
 
