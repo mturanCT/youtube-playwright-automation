@@ -283,6 +283,7 @@ log(num2)
 
 ### WINDOW HANDLE
 
+```javascript
 const pagePromises=page.context().waitForEvent('page'); 
 
 await page.locator("//xpath").click(); 
@@ -290,7 +291,7 @@ await page.locator("//xpath").click();
 const newPage=await pagePromises;
 
 await page.waitforLoadState("domcontentload"); 
-
+```
 
 ----------
 
@@ -320,14 +321,75 @@ async({page})=>{
 }
 ```
 
+---------------------------
+
+### SCREENSHOT
+There are three types of screenshot
+1- report : we need to change the config and add screenshot: 
+2- page : page.screenshot({path: 'filepath"})
+3- element: page.locator("//xpath").screenshot({path: 'filepath"})
 
 
+### VISUAL TESTING
+
+1- Page: 
+
+expect(page.screenshot()).toMatchSnapshot("filePath.png"); 
+
+2- Element: 
+
+expect(page.locator("xpath").screenshot()).toMatchSnapshot("filePath.png"); 
 
 
+### FILE UPLOAD
+we can upload the files if the input type is file using the setInputFiles() method in playwright. 
+
+page.locator("inputLocator).setInputFiles("filePath"); 
+
+page.locator("inputLocator).setInputFiles(["filePath1", "filePath1"}); 
 
 
+### DRAG  & DROP
+
+page.locator("sourceLocator").dragTo(page.locator("destinationLocator")); 
 
 
+### PAGE OBJECT MODEL 
 
+```Java
+HomePage(driver){
+PageFactory.initElements(driver); 
+}
 
+@FindBy()
+WebElement element
 
+```
+
+Page Constructor: 
+
+```javascript
+
+constructor(page){
+    this.page=page; 
+
+    this.username=page.locator("xpath"); 
+}
+
+```
+Page Methods: 
+
+```javascript
+
+constructor(page){
+    this.page=page; 
+
+    this.username=page.locator("xpath"); 
+}
+
+async login(username ){
+    this.username.fill(username); 
+}
+
+module.exports=Page
+```

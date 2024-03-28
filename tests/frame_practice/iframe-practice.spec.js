@@ -16,7 +16,7 @@ test("Iframe", async ({page})=> {
 })
 
 
-test.only('test', async ({ page }) => {
+test('test', async ({ page }) => {
   await page.goto('https://skpatro.github.io/demo/iframes/');
   const page1Promise = page.waitForEvent('popup');
   await page.frameLocator('iframe[name="Framename1"]').getByRole('link', { name: 'Category2' }).click();

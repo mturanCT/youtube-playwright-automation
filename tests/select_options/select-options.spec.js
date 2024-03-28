@@ -15,6 +15,6 @@ test("Select Options",async ({page})=>{
 
     await dropDown.selectOption({index:2}) // index
 
-    await page.pause();
+   // await page.pause();
 
 })

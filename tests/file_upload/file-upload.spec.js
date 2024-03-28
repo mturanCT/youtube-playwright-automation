@@ -14,5 +14,5 @@ test("File Upload", async ({page})=>{
     await expect(page.locator("#res")).toHaveText("1 file has been successfully uploaded.")
 
     // await page.pause(); 
-
+    
 })

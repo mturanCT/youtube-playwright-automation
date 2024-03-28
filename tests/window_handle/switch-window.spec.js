@@ -48,7 +48,7 @@ test("Multiple window", async ({page})=> {
 })
 
 
-test.only("Switch Window With Method", async ({page})=>{
+test("Switch Window With Method", async ({page})=>{
 
     await page.goto("https://www.hyrtutorials.com/p/window-handles-practice.html"); 
 

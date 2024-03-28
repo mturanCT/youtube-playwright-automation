@@ -13,6 +13,6 @@ test("Keyboard Action Tests", async ({page})=>{
 
     await expect(page).toHaveTitle('Techtorial - Google Search'); 
 
-    await page.pause();
+    //await page.pause();
 
 })
