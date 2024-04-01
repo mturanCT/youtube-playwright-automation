@@ -9,7 +9,7 @@ test("Drag & Drop Practice",{tag:["@hlr", "@smoke", "@regression"]},  async ({pa
     const blueBox=page.locator(".test1"); // target element
     await expect(blueBox).toHaveText("Drag the small circle here ...")
     await page.locator("#draggable").dragTo(blueBox); 
-    await expect(blueBox).toHaveText("You did great!")
+    await expect().soft(blueBox).toHaveText("You did great!")
     await expect(blueBox).toHaveCSS('background-color',"rgb(63, 81, 181)" );
 
     /*
@@ -17,6 +17,8 @@ test("Drag & Drop Practice",{tag:["@hlr", "@smoke", "@regression"]},  async ({pa
     const bColor=await blueBox.evaluate((el) => {
        return window.getComputedStyle(el).getPropertyValue('background-color');
     })
+
+    await blueBox.evaluate(() => { javascriptCodeGoesHere;})
     expect(bColor).toEqual("rgb(63, 81, 181)")
     */
 

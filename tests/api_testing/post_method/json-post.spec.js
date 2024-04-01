@@ -1,5 +1,4 @@
-const {test, expect, request}=require("@playwright/test"); 
-const exp = require("constants");
+const {test, expect}=require("@playwright/test"); 
 const jsonRequestBody=require("../data/jsonRequestBody.json"); 
 
 test("JSONPlaceholder POST Request", async ({request})=>{
