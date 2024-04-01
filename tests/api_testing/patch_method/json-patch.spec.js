@@ -9,5 +9,5 @@ test("JSONPlaceholder PATCH Request", async ({request})=>{
 
     const responseBody=await response.json(); 
 
-    await expect(responseBody.title).toBe("Created by Techtoial"); 
+    await expect(responseBody.title).toBe("Created by Techtorial");
 })

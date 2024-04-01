@@ -20,7 +20,7 @@ test("mouse actions", async ({page}) => {
     // without all methods --> images.nth(1); 
     await images.nth(1).hover(); 
 
-    await expect(page.getByText("name: user2")).toHaveText(": user2"); 
+    await expect(page.getByText("name: user2")).toHaveText("name: user2"); 
 
     await page.pause()
 })

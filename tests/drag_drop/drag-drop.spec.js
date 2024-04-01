@@ -8,8 +8,9 @@ test("Drag & Drop Practice",{tag:["@hlr", "@smoke", "@regression"]},  async ({pa
     await page.goto("https://demos.telerik.com/kendo-ui/dragdrop/area");
     const blueBox=page.locator(".test1"); // target element
     await expect(blueBox).toHaveText("Drag the small circle here ...")
-    await page.locator("#draggable").dragTo(blueBox); 
-    await expect().soft(blueBox).toHaveText("You did great!")
+    await page.locator("#draggable").dragTo(blueBox);
+    // SOFT ASSERT
+    await expect.soft(blueBox).toHaveText("You did great!")
     await expect(blueBox).toHaveCSS('background-color',"rgb(63, 81, 181)" );
 
     /*

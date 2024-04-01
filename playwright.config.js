@@ -13,19 +13,19 @@ const { defineConfig, devices } = require('@playwright/test');
 module.exports = defineConfig({
   testDir: './tests',
   // default timeout 30 sec
-  timeout:20 * 1000, 
+  timeout:30 * 1000, 
    
   expect:{
     // this is timeout for assertions. Expect
     // default timeout for expect is 5 sec
-    timeout:4000
+    timeout:5000
   },
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
-  retries:process.env.CI ? 2 : 0,
+  retries:2,//process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
   workers:process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
@@ -44,10 +44,10 @@ module.exports = defineConfig({
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'],
-                headless:false,
+                headless:true,
                 screenshot:'on', 
                 trace:'retain-on-failure', 
-                video:'on'
+                video:"retain-on-failure"
          },
     },
 

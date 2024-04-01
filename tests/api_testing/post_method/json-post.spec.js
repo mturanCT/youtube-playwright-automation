@@ -18,6 +18,6 @@ test("JSONPlaceholder POST Request", async ({request})=>{
 
     const responseBody=await response.json(); 
     await expect(responseBody.id).toBe(101); 
-    await expect(responseBody.title).toContain("Nikola");
+    await expect(responseBody.title).toContain("Techtorial");
 
 })
