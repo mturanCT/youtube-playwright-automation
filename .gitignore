@@ -3,3 +3,8 @@ node_modules/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+
+git remote add origin https://github.com/mturanCT/youtube-playwright-automation.git
+git branch -M main
+git push -u origin main

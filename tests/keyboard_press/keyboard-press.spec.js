@@ -1,5 +1,7 @@
-const {test, expect}=require('@playwright/test'); 
+import { test, expect } from '@playwright/test'; 
 
+
+test.describe("Keyboard Action Tests", () => {
 
 test("Keyboard Action Tests", async ({page})=>{
 
@@ -14,5 +16,22 @@ test("Keyboard Action Tests", async ({page})=>{
     await expect(page).toHaveTitle('Techtorial - Google Search'); 
 
     //await page.pause();
+
+})
+
+
+test.only("Keyboard Action Tests - Only This Test", async ({ page }) => {
+    
+
+  await page.goto('https://www.cnbc.com/');
+  await page.locator('[data-test="GlobalNavigation"]').getByRole('button', { name: 'Search' }).click();
+  await page.getByRole('button', { name: ' Search' }).click();
+  await page.getByRole('searchbox', { name: 'Search quotes, news, & video' }).click();
+  await page.getByRole('searchbox', { name: 'Search quotes, news, & video' }).fill('nvda');
+  await page.getByRole('button', { name: ' Search' }).click();
+  await page.locator('[data-test="QuoteStrip"]').getByText('NVIDIA Corp').click();
+});
+    //await page.pause();
+
 
 })
